@@ -1,0 +1,4 @@
+Electronics: [Laptop,SmartPhone,Camera]
+Books and stationery: [Book,stationery,Music,Handicrafts]
+Clothes: [Menswear,dress,Children's clothing]
+Sport and journey: [Sportswear,Sporting Goods,Travel and camping equipment]

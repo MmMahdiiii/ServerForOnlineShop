@@ -1,0 +1,14 @@
+1
+GP76 Leopard
+Electronics
+Laptop
+https://dkstatics-public.digikala.com/digikala-products/3a9e69904108cbdd66f568812a60bbed2ebec545_1642942915.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90
+64700
+4.5
+10
+Msi GP76 Leopard 17.3 inch laptop
+properties: {CPU: Intel Core i7-8750H,RAM: 16 GB,HDD: 1 TB,GPU: NVIDIA GeForce GTX 1660 Ti,Display: 17.3 inch',OS: Windows 10,Battery: 4 cell,Weight: 1.5 kg }
+colors: [black,white,red,blue,green,yellow]
+sizes: [14,15.6,17]
+Jadogar
+***
