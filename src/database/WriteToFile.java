@@ -2,6 +2,8 @@ package database;
 
 import utils.Categoris;
 import utils.Item;
+import utils.Order;
+import utils.User;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -47,4 +49,25 @@ public class WriteToFile {
         }
     }
 
+    public void writeUsers(String path, List<User> users) {
+        try {
+            Formatter formatter = new Formatter(path);
+            for (User user : users) {
+                formatter.format("%s\n", user.toString());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeOrders(String path, List<Order> orders) {
+        try {
+            Formatter formatter = new Formatter(path);
+            for (Order order : orders) {
+                formatter.format("%s\n", order.toString());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }

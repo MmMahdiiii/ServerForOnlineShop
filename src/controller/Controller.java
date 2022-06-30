@@ -92,6 +92,7 @@ public class Controller {
         }
         User user = dataBase.users.get(userId);
         Order order = new Order(user, items);
+        dataBase.orders.put(order.id, order);
         return order.id;
     }
 

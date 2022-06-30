@@ -21,7 +21,7 @@ public class DataBase {
     DataToString dataToString = new DataToString();
     public Map<Integer, Item> items = new HashMap<Integer, Item>();
     public Map<Integer, User> users;
-    ArrayList<Order> orders;
+    public Map<String, Order> orders;
     List<Categoris> categories;
 
 
@@ -31,6 +31,7 @@ public class DataBase {
         }
         categories = readFromFile.readCategories("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Categories.txt");
         users = readFromFile.readAllUsers("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Users.txt");
+        orders = readFromFile.readAllOrders("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Orders.txt");
     }
 
     public static DataBase getInstance() {

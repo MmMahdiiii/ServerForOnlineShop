@@ -67,4 +67,36 @@ public class User {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
+
+    @Override
+    public String toString() {
+        //necessary fields: id, name, phone, email, password
+        //make new user and add to map
+        //optional fields: address, city, country, wishlist, cart, orders
+        StringBuilder sb = new StringBuilder();
+        sb.append(id).append("\n");
+        sb.append(name).append("\n");
+        sb.append(phone).append("\n");
+        sb.append(email).append("\n");
+        sb.append(password).append("\n");
+        if (address != "") {
+            sb.append("address:").append(address).append("\n");
+        }
+        if (city != null && city != "") {
+            sb.append("city:").append(city).append("\n");
+        }
+        if (country != null && country != "") {
+            sb.append("country:").append(country).append("\n");
+        }
+        if (wishlist != null) {
+            sb.append("wishlist:").append(wishlist.toString()).append("\n");
+        }
+        if (cart != null) {
+            sb.append("cart:").append(cart.toString()).append("\n");
+        }
+        if (orders != null) {
+            sb.append("orders:").append(orders.toString()).append("\n");
+        }
+        return sb.toString();
+    }
 }

@@ -1,13 +1,13 @@
 package database;
 
-import utils.Categoris;
-import utils.Item;
-import utils.User;
+import utils.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -108,6 +108,7 @@ public class ReadFromFile {
         Collections.addAll(listItems, items);
         return listItems;
     }
+
     public ArrayList<String> readANoTileList(String Data) {
         // read the list [
         // separated by ,
@@ -220,5 +221,43 @@ public class ReadFromFile {
         }
         System.out.println(users.size());
         return users;
+    }
+
+    public Map<String, Order> readAllOrders(String path) {
+        //fields: id, userid, date, items
+        //separated by ***
+        Map<String, Order> orders = new HashMap<>();
+        try {
+            List<String> lines = Files.readAllLines(new File(path).toPath());
+            for (int i = 0; i < lines.size(); i++) {
+                // add lines until "***" is found
+                String id = lines.get(i);
+                i++;
+                int userid = Integer.parseInt(lines.get(i));
+                i++;
+                DataBase db = DataBase.getInstance();
+                User user = db.users.get(userid);
+                // get Data from date string
+                i++;
+                ArrayList<ItemInCart> items = new ArrayList<>();
+                while (!lines.get(i).equals("***")) {
+                    ArrayList<String> list = readANoTileList(lines.get(i));
+                    int itemId = Integer.parseInt(list.get(0));
+                    int quantity = Integer.parseInt(list.get(1));
+                    String color = list.get(2);
+                    String size = list.get(3);
+                    Item item = db.items.get(itemId);
+                    ItemInCart itemInCart = new ItemInCart(item, quantity, color, size);
+                    items.add(itemInCart);
+                    i++;
+                }
+                //get items from items map
+                Order order = new Order(id, user, items);
+                orders.put(id, order);
+            }
+        } catch (IOException e) {
+            System.out.println("Could not read from file" + path);
+        }
+        return orders;
     }
 }
