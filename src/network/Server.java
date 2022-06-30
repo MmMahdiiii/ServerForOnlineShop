@@ -1,12 +1,16 @@
 package network;
 
+import database.DataBase;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+public class Server extends Thread {
     ServerSocket serverSocket;
-    public  void start() {
+
+    @Override
+    public void run() {
         try {
             serverSocket = new ServerSocket(8000);
             while (true) {
@@ -20,5 +24,13 @@ public class Server {
         }
     }
 
+    public void turnOff() {
+        try {
+            serverSocket.close();
+            DataBase.getInstance().save();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

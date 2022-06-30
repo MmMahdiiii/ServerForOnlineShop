@@ -60,5 +60,16 @@ public class DataBase {
     public List<User> getUsers() {
         return new ArrayList<>(users.values());
     }
+
+    public List<Order> getOrders() {
+        return new ArrayList<>(orders.values());
+    }
+
+    public void save() {
+        writeToFile.writeItems("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Items.txt", getItems());
+        writeToFile.writeCategories("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Categories.txt", categories);
+        writeToFile.writeUsers("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Users.txt", getUsers());
+        writeToFile.writeOrders("E:\\Aria\\T2\\AP\\ServerForOnlineShop\\src\\data\\Orders.txt", getOrders());
+    }
 }
 

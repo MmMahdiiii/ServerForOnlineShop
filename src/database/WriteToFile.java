@@ -7,11 +7,12 @@ import utils.User;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Formatter;
 import java.util.List;
 
 public class WriteToFile {
-    public void writeItems(String path, ArrayList<Item> items) {
+    public void writeItems(String path, List<Item> items) {
         // write to file
         // items separated by ***
         // id, name, category, subCategory, imageUrl, price, rating, quantity, description, properties, colors, sizes, sellerName
